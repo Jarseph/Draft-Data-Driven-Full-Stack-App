@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, getIdToken } from "firebase/auth";
 import { getInstallations, getToken } from "firebase/installations";
+import { getFirestore } from "firebase/firestore";
 
 // this is set during install
 let firebaseConfig;
@@ -44,3 +45,5 @@ async function getAuthIdToken(auth) {
   if (!auth.currentUser) return;
   return await getIdToken(auth.currentUser);
 }
+
+const db = getFirestore();
